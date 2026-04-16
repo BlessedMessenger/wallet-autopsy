@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#ffffff"/>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace" fill="#000000">
+    <text x="72" y="148" font-size="56" font-weight="800" letter-spacing="-1">chain wrapped</text>
+    <text x="72" y="196" font-size="26" fill="#666">the lifetime wrap for any on-chain wallet</text>
+
+    <line x1="72" y1="236" x2="1128" y2="236" stroke="#000" stroke-width="1"/>
+
+    <g font-size="22">
+      <text x="72" y="296"><tspan fill="#666">[01]  transactions</tspan>    <tspan font-weight="800">847</tspan></text>
+      <text x="72" y="346"><tspan fill="#666">[02]  gas burned</tspan>       <tspan font-weight="800">0.42 ETH ($1,420)</tspan></text>
+      <text x="72" y="396"><tspan fill="#666">[03]  tokens touched</tspan>   <tspan font-weight="800">62</tspan></text>
+      <text x="72" y="446"><tspan fill="#666">[04]  failed transactions</tspan> <tspan font-weight="800">11</tspan></text>
+      <text x="72" y="496"><tspan fill="#666">[05]  profile</tspan>           <tspan font-weight="800">rug_tourist · 74%</tspan></text>
+    </g>
+
+    <line x1="72" y1="536" x2="1128" y2="536" stroke="#000" stroke-width="1"/>
+
+    <text x="72" y="580" font-size="20" fill="#666">github.com/BlessedMessenger/chain-wrapped · 12 chains · MIT</text>
+    <text x="1128" y="580" font-size="20" fill="#666" text-anchor="end">tip · btc bc1qu7&#8230;v7g3</text>
+  </g>
+</svg>

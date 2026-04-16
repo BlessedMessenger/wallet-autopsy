@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; connect-src 'self' https://api.etherscan.io https://api.blockchair.com https://mempool.space https://api.mainnet-beta.solana.com https://solana.drpc.org https://coins.llama.fi; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'"
+    />
+
+    <title>chain wrapped — the lifetime wrap for any crypto wallet</title>
+    <meta
+      name="description"
+      content="Wrap any crypto wallet. Paste any BTC, ETH, SOL, DOGE, BCH, LTC, or EVM L2 address and get an honest, dry, multi-chain recap of its entire on-chain history. Runs entirely in your browser. No accounts. No tracking."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://blessedmessenger.github.io/chain-wrapped/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="chain wrapped — the lifetime wrap for any crypto wallet" />
+    <meta
+      property="og:description"
+      content="An honest, chain-agnostic, lifetime wrap of any crypto wallet. 12 chains. Runs in your browser. Open source."
+    />
+    <meta property="og:image" content="./og-image.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="chain wrapped — the lifetime wrap for any crypto wallet" />
+    <meta
+      name="twitter:description"
+      content="Paste any wallet. Get a dry, honest multi-chain recap. 12 chains supported. Zero backend."
+    />
+    <meta name="twitter:image" content="./og-image.svg" />
+
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  </head>
+  <body>
+    <noscript>
+      <p style="font-family: ui-monospace, monospace; padding: 2rem">
+        chain wrapped runs entirely in your browser and needs JavaScript. Please enable it and
+        refresh.
+      </p>
+    </noscript>
+    <main id="app" aria-live="polite"></main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

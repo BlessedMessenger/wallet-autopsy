@@ -1,0 +1,482 @@
+/* ---- Reset & base ---- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #000000;
+  font-family:
+    ui-monospace,
+    'JetBrains Mono',
+    'SF Mono',
+    'Cascadia Code',
+    Menlo,
+    Consolas,
+    'DejaVu Sans Mono',
+    monospace;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: none;
+  tab-size: 2;
+}
+
+body {
+  min-height: 100dvh;
+  padding: clamp(16px, 4vw, 48px);
+}
+
+/* Give long ASCII boxes a predictable monospace advance on every system. */
+pre,
+code,
+kbd,
+samp {
+  font: inherit;
+}
+
+::selection {
+  background: #000000;
+  color: #ffffff;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+button {
+  font: inherit;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus-visible {
+  background: #000000;
+  color: #ffffff;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #ffffff;
+  color: #000000;
+}
+
+input,
+textarea {
+  font: inherit;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  padding: 6px 10px;
+  width: 100%;
+  border-radius: 0;
+}
+
+input::placeholder {
+  color: #666;
+}
+
+/* ---- Layout ---- */
+
+#app {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---- Terminal primitives ---- */
+
+.tty {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.tty-line {
+  display: block;
+  min-height: 1.5em;
+}
+
+.prompt {
+  user-select: none;
+  padding-right: 0.5ch;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.6ch;
+  height: 1em;
+  background: #000;
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    background: transparent;
+  }
+}
+
+.muted {
+  color: #666;
+}
+
+.strong {
+  font-weight: 700;
+}
+
+.loss {
+  color: #c00;
+}
+
+.ok {
+  color: #007400;
+}
+
+/* ---- Box / card ---- */
+
+.card {
+  border: 1px solid #000;
+  padding: 16px 20px;
+  background: #ffffff;
+}
+
+.card + .card {
+  margin-top: 16px;
+}
+
+.card-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 8px;
+  font-size: 0.9em;
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: 14ch 1fr;
+  gap: 4px 16px;
+}
+
+.kv dt {
+  color: #666;
+  font-weight: 400;
+}
+
+.kv dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* ---- Findings list ---- */
+
+.findings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.finding {
+  display: grid;
+  grid-template-columns: 5ch 1fr;
+  gap: 4px 12px;
+  border-top: 1px dashed #000;
+  padding-top: 10px;
+}
+
+.finding:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.finding-id {
+  color: #666;
+}
+
+.finding-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.finding-value {
+  font-weight: 700;
+  font-size: 1.15em;
+  margin-top: 2px;
+}
+
+.finding-comment {
+  grid-column: 2;
+  color: #000;
+  margin-top: 2px;
+}
+
+.finding-cite {
+  grid-column: 2;
+  margin-top: 4px;
+  font-size: 0.85em;
+  color: #666;
+}
+
+/* ---- Header ---- */
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #000;
+  padding-bottom: 8px;
+}
+
+.brand {
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+
+.brand .punct {
+  color: #666;
+}
+
+.header-links {
+  display: flex;
+  gap: 16px;
+}
+
+/* ---- Footer ---- */
+
+.footer {
+  border-top: 1px solid #000;
+  padding-top: 12px;
+  font-size: 0.85em;
+  color: #666;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  justify-content: space-between;
+}
+
+.footer a {
+  color: #000;
+}
+
+/* ---- Progress / status ---- */
+
+.status {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  background: #000;
+  animation: blink 1s steps(1) infinite;
+}
+
+/* ---- Form ---- */
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hint {
+  font-size: 0.85em;
+  color: #666;
+}
+
+.hint strong {
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.9em;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+/* ---- Footer tip ---- */
+
+.footer .tip {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.footer .tip-addr {
+  word-break: break-all;
+}
+
+.footer .tip-copy {
+  font-size: 0.85em;
+  padding: 1px 8px;
+}
+
+/* ---- Key hint ---- */
+
+kbd.key {
+  display: inline-block;
+  border: 1px solid #000;
+  padding: 1px 6px;
+  margin: 0 2px;
+  font-size: 0.85em;
+}
+
+/* ---- Share card (1200x630, rendered off-screen for image export) ---- */
+
+.share-stage {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  width: 1200px;
+  height: 630px;
+  background: #ffffff;
+  color: #000000;
+  padding: 56px 72px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 28px;
+  pointer-events: none;
+}
+
+.share-stage .share-title {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.share-stage .share-sub {
+  font-size: 22px;
+  color: #666;
+  margin-top: 6px;
+}
+
+.share-stage .share-findings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 40px;
+  align-content: start;
+  font-size: 22px;
+}
+
+.share-stage .share-findings .k {
+  color: #666;
+}
+
+.share-stage .share-findings .v {
+  font-weight: 800;
+  font-size: 26px;
+  margin-top: 2px;
+}
+
+.share-stage .share-profile {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.share-stage .share-foot {
+  border-top: 1px solid #000;
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: #666;
+}
+
+/* ---- Mobile ---- */
+
+@media (max-width: 520px) {
+  body {
+    font-size: 14px;
+  }
+  .kv {
+    grid-template-columns: 12ch 1fr;
+  }
+  .finding {
+    grid-template-columns: 4ch 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  /* Below ~360px the 12ch label column crowds the value. Stack. */
+  .kv {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .kv dt {
+    margin-top: 6px;
+  }
+  .finding {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .finding-id {
+    display: none;
+  }
+  .finding-comment,
+  .finding-cite {
+    grid-column: 1;
+  }
+}
+
+/* ---- Reduced motion ---- */
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor,
+  .status-dot {
+    animation: none;
+  }
+}
